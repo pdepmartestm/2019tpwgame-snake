@@ -25,13 +25,13 @@ Aumenta la velocidad del nivel anterior y la vibora permanecera con una borrache
 ### Acerca de:
 
 Autores:
-Alexander Martinez 
-Jose Bruzzoni
-Ivan Gonzales
-Melany Gassmann
+Alexander Martinez, 
+Jose Bruzzoni,
+Ivan Gonzales,
+Melany Gassmann,
 
 Docente/Curso/Institución:
-Lucas Spigarol K2002 UTN
+Lucas Spigarol / K2002 / UTN
 
 Versión de wollok:
 Version 1.8.5
