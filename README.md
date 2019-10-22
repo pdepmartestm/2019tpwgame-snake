@@ -1,7 +1,7 @@
 # ¡A jugar! 
 
 ## Juego realizado con la biblioteca Wollok Game
-https://raw.githubusercontent.com/MelanyGassmann/2019tpwgame-snake/master/asset/20191022_005023.gif
+https://raw.githubusercontent.com/pdepmartestm/2019tpwgame-snake/master/asset/20191022_005023.gif
 
 
 
