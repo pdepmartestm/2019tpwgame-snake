@@ -1,0 +1,9 @@
+import wollok.game.*
+import Pantallas.*
+import Elemento.*
+import Marco.*
+
+program snakeGame {
+	pantallaPrincipal.iniciarPantalla()
+	game.start()
+}
