@@ -1,7 +1,7 @@
 # ¡A jugar! 
 
 ## Juego realizado con la biblioteca Wollok Game
-https://github.com/pdepmartestm/2019tpwgame-snake/blob/master/20191022_005023.gif
+https://github.com/pdepmartestm/2019tpwgame-snake/blob/master/Snake%20Final.gif
 
 
 
@@ -34,7 +34,7 @@ Docente/Curso/Institución:
 Lucas Spigarol K2002 UTN
 
 Versión de wollok:
-
+Version 1.8.5
 
 Fecha:
 22-10-19
