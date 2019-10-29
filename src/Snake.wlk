@@ -26,6 +26,7 @@ class Cuerpo inherits ElementoVisual{
 	}
 	
 	method interactuar(cabeza){
+		position = game.at(5,3)
 		cabeza.morir()
 	}
 }
@@ -134,24 +135,23 @@ object cabeza inherits Cuerpo(imagen = "head_up.png", position = game.at(5,3)){
 	
 	
 	method morir(){
-		game.removeTickEvent("cancionFondo") 
-		game.removeTickEvent("movimiento")
-		game.removeTickEvent("verSiAlmorzo")
-		game.removeTickEvent("verSiHizoGimnasia")
-		self.borrarElemento()
 		nivel.finalizarNivel() 
-		perdiste.iniciarPantalla()
 	}
 	
 	method dejeDeComer(){
 		if(!almorce){
 			self.morir()
 		}
+		else{
+			self.almorce(false)
+		}
 	}
 	
 	method snakeVaga(){
 		if(!hiceGimnasia){
 			self.morir()
+		}else{
+			 self.hiceGimnasia(false)
 		}
 	}
 	

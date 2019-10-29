@@ -2,8 +2,10 @@ import wollok.game.*
 import Pantallas.*
 import Elemento.*
 import Marco.*
+import Comestibles.*
 
 program snakeGame {
-	pantallaPrincipal.iniciarPantalla()
+	juego.crearPantallasYNiveles()
+	juego.iniciarJuego()
 	game.start()
 }

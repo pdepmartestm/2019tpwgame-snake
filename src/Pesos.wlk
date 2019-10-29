@@ -26,5 +26,3 @@ object peso {
 		return numeros.get(numero)
 	}
 }
-
-const palabraPeso = new ElementoVisual(image="peso.png",position=game.at(4,11))

@@ -4,55 +4,49 @@ import Snake.*
 import Pesos.*
 
 class Comestible inherits ElementoDinamico{
+	const sonido
 	method interactuar(cabeza)
-	method reposicionar(){
-		self.nuevaPosicionAlAzar()
-	}
+	method reposicionar() { self.nuevaPosicionAlAzar()}
 }
 
-object manzana inherits Comestible(image = "manzana.png", position = game.at(3,3)){
+class ComestibleConCalorias inherits Comestible{
+	const calorias
+	var caloriasQuemadas = 1
 	override method interactuar(cabeza){
-		cabeza.almorce(true)
-		cabeza.engordar(1)
+		if (calorias > 0)
+			{
+				cabeza.almorce(true)
+				cabeza.engordar(calorias)
+			}
+		else
+			{
+				caloriasQuemadas = (-calorias)
+				cabeza.hiceGimnasia(true)
+				cabeza.adelgazar(caloriasQuemadas)
+			}
 		peso.informarPeso(cabeza.peso())
-		game.sound("come.mp3")
-		self.nuevaPosicionAlAzar()
+		game.sound(sonido)
+		self.reposicionar()
 	}
+	
+	
 }
 
-object hamburguesa inherits Comestible(image = "burguer.png", position = game.at(4,4)) {
+class ComestibleConEstado inherits Comestible{
+	const estadoQueAplica
 	override method interactuar(cabeza){
-		cabeza.almorce(true)
-		cabeza.engordar(3)
-		peso.informarPeso(cabeza.peso())
-		game.sound("come.mp3")
-		self.nuevaPosicionAlAzar()
+		cabeza.estado(estadoQueAplica)
+		game.sound(sonido)
+		self.reposicionar()
 	}
 }
 
-object mancuerna inherits Comestible(image = "mancuerna.png", position = game.at(7,5)){ 
-	override method interactuar(cabeza){
-		cabeza.hiceGimnasia(true)
-		cabeza.adelgazar(2)
-		peso.informarPeso(cabeza.peso())
-		game.sound("Tarzan.mp3")
-		self.nuevaPosicionAlAzar()
-	}
+const manzana = new ComestibleConCalorias(image = "manzana.png", position = game.at(3,3), calorias = 1, sonido = "come.mp3")
 
-}
+const hamburguesa = new ComestibleConCalorias(image = "burguer.png", position = game.at(4,4), calorias = 3, sonido = "come.mp3")
 
-object cerveza inherits Comestible(image = "cerveza.png", position = game.at(6,3)){ 
-	override method interactuar(cabeza){
-		cabeza.estado("mareada")
-		game.sound("eructo.mp3")
-		self.nuevaPosicionAlAzar()
-	}
-}
+const mancuerna = new ComestibleConCalorias(image = "mancuerna.png", position = game.at(7,5), calorias = -2, sonido = "Tarzan.mp3")
 
-object agua inherits Comestible(image = "botella.png", position = game.at(8,8)){ 
-	override method interactuar(cabeza){
-		cabeza.estado("sobria")
-		game.sound("eructo.mp3")
-		self.nuevaPosicionAlAzar()
-	}
-}
+const cerveza = new ComestibleConEstado(image = "cerveza.png", position = game.at(6,3), estadoQueAplica = "mareada", sonido = "eructo.mp3")
+
+const agua = new ComestibleConEstado(image = "botella.png", position = game.at(8,8), estadoQueAplica = "sobria", sonido = "eructo.mp3")
