@@ -9,6 +9,8 @@ https://github.com/pdepmartestm/2019tpwgame-snake/blob/master/Snake%20Final.gif
 Es un juego en el cual uno debe dirigir a la viborita hacia los alimentos para poder aumentar o disminuir de peso. Para ganar se debe cumplir con los requisitos indicados en cada nivel. 
 
 ### Instrucciones:
+Para comenzar el nivel deberá apretar la letra "O" para salir de la pantalla de instrucciones de cada nivel.
+
 Si durante 10 segundos no ingiere un alimento, la viborita morirá por desnutrición.
 Si durante 15 segundos no hace ningun ejercicio la viborita morirá por cedentarismo.
 Si chocas con algún boder del marco la viborita morirá.
