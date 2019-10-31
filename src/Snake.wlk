@@ -34,7 +34,7 @@ class Cuerpo inherits ElementoVisual{
 object cabeza inherits Cuerpo(imagen = "head_up.png", position = game.at(5,3)){
 	var ultimoCuerpo = self
 	var nivel
-	var property estado = "sobria"
+	var property estado = sobria
 	var property almorce = false
 	var property hiceGimnasia = false
 	var cuerpos = [] 
@@ -98,41 +98,13 @@ object cabeza inherits Cuerpo(imagen = "head_up.png", position = game.at(5,3)){
 	}
 	
 	method mirarA(direccion){
-		var dir
-		if(estado=="mareada"){
-			dir = self.mareada(direccion)
-		}
-		else{ 
-			dir = direccion
-		}	
-		
-		if(imagen == "head_up.png" || imagen == "head_down.png"){
-			if(dir == "left" || dir == "right"){
-				imagen = "head_" + dir + ".png"
-			}
-		}
-		if(imagen == "head_left.png" || imagen == "head_right.png"){
-			if(dir == "up" || dir == "down"){
-				imagen = "head_" + dir + ".png"
-			}
-		}
-		
+		var dir = estado.controlarDireccion(direccion)
+		imagen = movimientosPermitidos.obtenerNuevaDireccionCabeza(imagen,dir)
 	}
 	
 	method peso(){
 		return cuerpos.size()
 	}
-	
-	
-	method mareada(direccion){
-		var dir
-		if(direccion=="right"){dir = "left"}
-		if(direccion== "left"){dir = "right"}
-		if(direccion=="down"){dir = "up"}
-		if(direccion=="up"){dir = "down"}
-		return dir
-	}
-	
 	
 	method morir(){
 		nivel.finalizarNivel() 
@@ -164,6 +136,55 @@ object cabeza inherits Cuerpo(imagen = "head_up.png", position = game.at(5,3)){
 		ultimoCuerpo.position(game.at(5,5))
 		ultimoCuerpo.setUltimaPosicion(game.at(5,4))
 		cuerpos = []
+	}
+	
+}
+
+object mareada{
+	method controlarDireccion(direccion){
+		var dir
+		if(direccion=="right"){dir = "left"}
+		if(direccion== "left"){dir = "right"}
+		if(direccion=="down"){dir = "up"}
+		if(direccion=="up"){dir = "down"}
+		return dir
+	}
+}
+
+object sobria{
+	method controlarDireccion(direccion){
+		return direccion;
+	}
+}
+
+object movimientosPermitidos{
+	const movimientoHorizontal = ["left","right"]
+	const movimientoVertical = ["up","down"]
+	
+	method seMueveVerticalmente(aDondeMira){
+		return (aDondeMira=="head_up.png" || aDondeMira=="head_down.png")
+	}
+	
+	method seMueveHorizontalmente(aDondeMira){
+		return (aDondeMira=="head_left.png" || aDondeMira=="head_right.png")
+	}
+	
+	method esUnMovimientoVertical(direccion){
+		return movimientoVertical.contains(direccion)
+	}
+	
+	method esUnMovimientoHorizontal(direccion){
+		return movimientoHorizontal.contains(direccion)
+	}
+	
+	method obtenerNuevaDireccionCabeza(aDondeMira, aDondeQuiereMirar){
+		if(self.seMueveVerticalmente(aDondeMira) && self.esUnMovimientoHorizontal(aDondeQuiereMirar)){
+			return "head_" + aDondeQuiereMirar + ".png"
+		}
+		if(self.seMueveHorizontalmente(aDondeMira) && self.esUnMovimientoVertical(aDondeQuiereMirar)){
+			return "head_" + aDondeQuiereMirar + ".png"
+		}
+		return aDondeMira
 	}
 	
 }

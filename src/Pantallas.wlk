@@ -164,11 +164,11 @@ object juego {
 		var palabraPeso = new ElementoVisual(image="peso.png",position=game.at(4,11))
 		
 		nivel1 = new Nivel()
-		nivel1.crearNivel("objetivoNivelUno.png", [hamburguesa ,mancuerna ,manzana, cerveza, agua, palabraPeso], 20, 15, ganaste, perdiste, 600, 60000, "sobria" )
+		nivel1.crearNivel("objetivoNivelUno.png", [hamburguesa ,mancuerna ,manzana, cerveza, agua, palabraPeso], 20, 15, ganaste, perdiste, 600, 60000, sobria )
 		nivel2 = new Nivel()
-		nivel2.crearNivel("objetivoNivelDos.png", [hamburguesa ,mancuerna ,manzana, cerveza, agua, palabraPeso], 50, 40, ganaste , perdiste, 300, 60000, "sobria")
+		nivel2.crearNivel("objetivoNivelDos.png", [hamburguesa ,mancuerna ,manzana, cerveza, agua, palabraPeso], 50, 40, ganaste , perdiste, 300, 60000, sobria)
 		nivel3 = new Nivel()
-		nivel3.crearNivel("objetivoNivelTres.png", [hamburguesa ,mancuerna ,manzana, palabraPeso], 26, 16, ganaste, perdiste, 450, 60000, "mareada")
+		nivel3.crearNivel("objetivoNivelTres.png", [hamburguesa ,mancuerna ,manzana, palabraPeso], 26, 16, ganaste, perdiste, 450, 60000, mareada)
 		
 		controles = new Pantalla()
 		controles.crearPantalla("controles.png")

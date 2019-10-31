@@ -47,6 +47,6 @@ const hamburguesa = new ComestibleConCalorias(image = "burguer.png", position = 
 
 const mancuerna = new ComestibleConCalorias(image = "mancuerna.png", position = game.at(7,5), calorias = -2, sonido = "Tarzan.mp3")
 
-const cerveza = new ComestibleConEstado(image = "cerveza.png", position = game.at(6,3), estadoQueAplica = "mareada", sonido = "eructo.mp3")
+const cerveza = new ComestibleConEstado(image = "cerveza.png", position = game.at(6,3), estadoQueAplica = mareada, sonido = "eructo.mp3")
 
-const agua = new ComestibleConEstado(image = "botella.png", position = game.at(8,8), estadoQueAplica = "sobria", sonido = "eructo.mp3")
+const agua = new ComestibleConEstado(image = "botella.png", position = game.at(8,8), estadoQueAplica = sobria, sonido = "eructo.mp3")
