@@ -7,19 +7,13 @@ object peso {
 	method informarPeso(numero){
 		var unidad = numero % 10
 		var decena = numero.div(10)
-		self.dibujarNumero( self.obtenerNombreDeNumero(unidad) , "unidad")
-		self.dibujarNumero( self.obtenerNombreDeNumero(decena) , "decena")
+		self.dibujarNumero( self.obtenerNombreDeNumero(unidad) , 7)
+		self.dibujarNumero( self.obtenerNombreDeNumero(decena) , 6)
 	}
 	
 	method dibujarNumero(nombreNumero,parteDeNumero){
-		if(parteDeNumero == "unidad"){
-			var nuevoNumero = new ElementoVisual(image=nombreNumero, position=game.at(7,11))
-			nuevoNumero.dibujarElemento()
-		}
-		else{
-			var nuevoNumero = new ElementoVisual(image=nombreNumero, position=game.at(6,11))
-			nuevoNumero.dibujarElemento()
-		}
+		var nuevoNumero = new ElementoVisual(image=nombreNumero, position=game.at(parteDeNumero,11))
+		nuevoNumero.dibujarElemento()
 	}
 	
 	method obtenerNombreDeNumero(numero){
